@@ -21,4 +21,4 @@ Experiment to determine the acceleration due to gravity and drag force on bodies
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
 1 | Harsh Pathak | Student | Mechanical Engineering | Dayalbagh Educational Institute | 06hpathak@gmail.com
-2 | Aysha | Student | Mechanical Engineering | Dayalbagh Educational Institute | satsangiayshagmail.com
+2 | Aysha | Student | Mechanical Engineering | Dayalbagh Educational Institute | satsangiaysha@gmail.com
