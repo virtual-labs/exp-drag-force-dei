@@ -1,1 +1,1 @@
-### Aim of the experiment
+### ACCELERATION DUE TO GRAVITY AND TERMINAL VELOCITY 
