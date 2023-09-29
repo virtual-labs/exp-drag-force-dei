@@ -1,13 +1,328 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<html lang="en">
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<head>
+
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXPERIMENT 4</title>
+  <!-- "Developer Name:
+               1.Harsh Pathak
+                 (06hpathak@gmail.com)
+               2.Aysha
+                 (satsangiaysha@gmail.com)
+  Subject Expertise : Mr.Jinshad.U
+  Instiute Name: Dayalbagh Educational Instiute, Agra" -->
+</head>
+
+<body>
+  <h3>ACCELERATION DUE TO GRAVITY & TERMINAL VELOCITY</h3>
+  <div id="container"></div>
+
+  <div class="controls">
+    <div class="contrl_heading"><b>Controls:-</b></div>
+    <div class="play">Release</div>
+    <!-- <div class="pause">Pause</div> -->
+    <div class="reset">Reset</div>
+
+    <input type="image" id="stopwatch" src="images/watch_stop.png" />
+  </div>
+  <div class="result_heading"><b>Result:-</b></div>
+  <div class="container1">
+
+    <div id="time1">
+      <span class="digit" id="min">
+        00</span>
+      <span class="txt
+            ">:</span>
+      <span class="digit" id="sec">
+        00</span>
+      <span class="txt">:</span>
+      <span class="digit" id="count">
+        00</span>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="play" id="playButton">
+      <img src="images/play.png" />
+    </button>
+    <!-- <button type="pause" id="pauseButton" onclick="pause()">
+        <img src="images/pause.png"  onclick="pause()"/> -->
+    <!-- </button> -->
+    <button type="reset" id="resetButton">
+      <img src="images/reset.png" onclick=reset() />
+    </button>
+
+  </div>
+  <a class="button-table1" href="#popup1">Obervation Table 1</a>
+  <a class="button-table2" href="#popup2">Obervation Table 2</a>
+
+  </div>
+
+  <div class="mass_object">Mass of object m (g) </div>
+  <div id="slider_mass">
+    5<input type="range" class="range" id="currentmass" min="5" max="20" value="0" step="1"
+      oninput="showmass(this.value)" onchange="showmass(this.value)">20
+  </div>
+  <div class="mass_value" id="initialmassValue">5</div>
+
+  <div class="cof">Coefficient of drag (C<sub>d</sub>)</div>
+  <div id="slider_cof">
+    0.5<input type="range" class="range" id="currentDragValue" min="0.5" max="2.0" value="0" step="0.1"
+      oninput="showDrag(this.value)" onchange="showDrag(this.value)"> 2.0
+  </div>
+  <div id="initialDragValue">0.5</div>
+
+  <div class="area">Frontal area of <br> an object A (cm<sup>2</sup>)</div>
+  <div id="slider_area">
+    0.5<input type="range" class="range" id="currentAreaValue" min="0.5" max="1.5" value="0" step="0.1"
+      oninput="showArea(this.value)" onchange="showArea(this.value)"> 1.5
+  </div>
+  <div id="initialAreaValue">0.5</div>
+
+  <div class="size">Size of object s (cm)</div>
+  <div id="slider_size">
+    0.5<input type="range" class="range" id="currentSizeValue" min="0.5" max="1.5" value="0" step="0.1"
+      oninput="showSize(this.value)" onchange="showSize(this.value)"> 1.5
+  </div>
+  <div id="initialSizeValue">0.5</div>
+  <div class="density">Density of fluid <br>⍴ (kg/m<sup>3</sup>): <span id="density">0</span> </div>
+
+  <div class="lock">Lock : </div>
+  <input type="checkbox" id="lockCheckbox" value="Lock" onclick="lock()">
+
+  <div class="velocity">
+    <div>Acceleration due <br> to gravity :<span id="gravity">0 m/s2</span></div>
+    <div>Final velocity of ball 1<br> in vaccum: <span id="velocityOfBall1">0.000 m/s</span> </div>
+    <!-- <div >Velocity of ball 2 :  <span id="velocityOfBall2">0.000 m/s</span> </div> -->
+    <div>Terminal velocity of ball 2 <br> in fluid: <span id="terminaVelocity">0.000 m/s</span> </div>
+    <!-- <div>Time :<span id = "calculated_time">0.000 s</span> </div> -->
+    <div> Maximum drag force<br> in fluid : <span id="dragForce">0.000 N</span></div>
+  </div>
+
+  <div class="radioSelection">
+    <p class="object_selection">Please select the fluid :</p>
+      <input type="radio" id="Glycerine" name="fav_language" value="GLYCERINE">
+      <label class="Glycerine_label" for="Glycerine">Glycerine</label><br>
+      <input type="radio" id="Water" name="fav_language" value="Water" checked>
+      <label class="Water_label" for="Water">Water</label>
+  </div>
+  <canvas id="myCanvas" width="810px" height="490px"></canvas>
+
+  <div class="vaccum">Vaccum</div>
+<div class="fluid">Fluid</div>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2 style="text-align: center; text-decoration: solid; text-decoration: underline;">Obervation Table 1- Object in Vaccum</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        Mass of the object m (g) = <span id="mass1">50</span>
+        <br>
+        Size of the object s (cm) = <span id="ballSize1">5</span>
+        <br>
+        Projected area A (m2) =<span id="area1">5</span>
+
+      </div><br>
+      <table>
+        <tr>
+          <th>S.No of light gate</th>
+          <th>Distance of light gate from release position y (m)</th>
+          <th>Recorded stop-watch timer on passing of the object t (sec)</th>
+          <th>Recorded time taken by the object to pass through the light gate t’ (sec)</th>
+          <th>Velocity of the object (m/s)</th>
+
+        <tr>
+          <td>1</td>
+          <td>0.4</td>
+          <td><span id="lg1Time0">0</span></td>
+          <td><span id="lg1CrossTime0">0</span></td>
+          <td><span id="lg1vel0">0</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0.6</td>
+          <td><span id="lg1Time1">0</span></td>
+          <td><span id="lg1CrossTime1">0</span></td>
+          <td><span id="lg1vel1">0</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>0.8</td>
+          <td><span id="lg1Time2">0</span></td>
+          <td><span id="lg1CrossTime2">0</span></td>
+          <td><span id="lg1vel2">0</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1.0</td>
+          <td><span id="lg1Time3">0</span></td>
+          <td><span id="lg1CrossTime3">0</span></td>
+          <td><span id="lg1vel3">0</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>1.2</td>
+          <td><span id="lg1Time4">0</span></td>
+          <td><span id="lg1CrossTime4">0</span></td>
+          <td><span id="lg1vel4">0</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>1.4</td>
+          <td><span id="lg1Time5">0</span></td>
+          <td><span id="lg1CrossTime5">0</span></td>
+          <td><span id="lg1vel5">0</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>1.6</td>
+          <td><span id="lg1Time6">0</span></td>
+          <td><span id="lg1CrossTime6">0</span></td>
+          <td><span id="lg1vel6">0</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>1.8</td>
+          <td><span id="lg1Time7">0</span></td>
+          <td><span id="lg1CrossTime7">0</span></td>
+          <td><span id="lg1vel7">0</span></td>
+        </tr>
+
+        </tr>
+      </table><br>
+
+      <div>Slope of graph = <span id="gravity1">0 m/s2</span></div>
+      <div> Hence, Acceleration due to gravity = <span id="gravity2">0 m/s2</span></div>
+
+
+
+    </div>
+  </div>
+  <div id="popup2" class="overlay">
+    <div class="popup">
+      <h2 style="text-align: center; text-decoration: solid; text-decoration: underline;">Obervation Table 2- Object in Fluid </h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        Mass of the object m (g) =<span id="mass2">50</span>
+        <br>
+        Size of the object s (cm) =<span id="ballSize2">5</span>
+        <br>
+        Projected area A (m2) =<span id="area2">5</span>
+        <br>
+        Coefficient of drag Cd =<span id="dragCoeff">0.5</span>
+        <br>
+        Density of the fluid ρ (kg/m³) =<span id="fluidDensity">997.77</span>
+      </div><br>
+      <table>
+        <tr>
+          <th>S.No of light gate</th>
+          <th>Distance of light gate from release position y (m)</th>
+          <th>Recorded stop-watch timer on passing of the object t (sec)</th>
+          <th>Recorded time taken by the object to pass through the light gate t’ (sec)</th>
+          <th>Velocity of the object (m/s)</th>
+          <th>Drag Force F (N)</th>
+        <tr>
+          <td>1</td>
+          <td>0.4</td>
+          <td><span id="lg2Time0">0</span></td>
+          <td><span id="lg2CrossTime0">0</span></td>
+          <td><span id="lg2vel0">0</span></span></td>
+          <td><span id="dragForce0">0</span></td>
+
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0.6</td>
+          <td><span id="lg2Time1">0</span></td>
+          <td><span id="lg2CrossTime1">0</span></td>
+          <td><span id="lg2vel1">0</span></td>
+          <td><span id="dragForce1">0</span></td>
+
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>0.8</td>
+          <td><span id="lg2Time2">0</span></td>
+          <td><span id="lg2CrossTime2">0</span></td>
+          <td><span id="lg2vel2">0</span></td>
+          <td><span id="dragForce2">0</span></td>
+
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1.0</td>
+          <td><span id="lg2Time3">0</span></td>
+          <td><span id="lg2CrossTime3">0</span></td>
+          <td><span id="lg2vel3">0</span></td>
+          <td><span id="dragForce3">0</span></td>
+
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>1.2</td>
+          <td><span id="lg2Time4">0</span></td>
+          <td><span id="lg2CrossTime4">0</span></td>
+          <td><span id="lg2vel4">0</span></td>
+          <td><span id="dragForce4">0</span></td>
+
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>1.4</td>
+          <td><span id="lg2Time5">0</span></td>
+          <td><span id="lg2CrossTime5">0</span></td>
+          <td><span id="lg2vel5">0</span></td>
+          <td><span id="dragForce5">0</span></td>
+
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>1.6</td>
+          <td><span id="lg2Time6">0</span></td>
+          <td><span id="lg2CrossTime6">0</span></td>
+          <td><span id="lg2vel6">0</span></td>
+          <td><span id="dragForce6">0</span></td>
+
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>1.8</td>
+          <td><span id="lg2Time7">0</span></td>
+          <td><span id="lg2CrossTime7">0</span></td>
+          <td><span id="lg2vel7">0</span></td>
+          <td><span id="dragForce7">0</span></td>
+
+        </tr>
+
+        </tr>
+      </table>
+      <br>
+      <div>Terminal velocity = <span id="terminaVelocity1">0 m/s</span></div>
+      <div>Final drag force = <span id="dragForce_final">0 N</span></div>
+      <div> Hence, Acceleration due to gravity = <span id="gravity3">0 m/s2</span></div>
+
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+  
+
+  <div id="copyright"
+    title="Developer : Harsh Pathak and Aysha,Subject Expertise : Mr.Jinshad.U, Dayalbagh Educational Instiute,Agra ">
+  </div>
+  <div id="Developer_information" title="Developer Name:
+               1.Harsh Pathak
+                 (06hpathak@gmail.com)
+               2.Aysha
+                 (satsangiaysha@gmail.com)
+  Subject Expertise : Mr.Jinshad.U
+  Instiute Name: Dayalbagh Educational Instiute, Agra">
+  </div>
+  <canvas id="velocityDragChart"></canvas>
 </body>
+
 </html>
