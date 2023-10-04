@@ -6,5 +6,5 @@
 ### Developers
 | SNo. | Name | Email | Institute |
 | :---: | :---: | :---: | :---: |
-| 1 | Aysha | satsangiaysha@gmail.com | Dayalbagh Educational Institute |
-| 2 | Harsh Pathak | 06hpathak@gmail.com | Dayalbagh Educational Institute |
+| 1 | Harsh Pathak | 06hpathak@gmail.com | Dayalbagh Educational Institute |
+| 2 | Aysha | satsangiaysha@gmail.com | Dayalbagh Educational Institute |
