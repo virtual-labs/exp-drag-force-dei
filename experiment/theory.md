@@ -4,7 +4,9 @@ This experiment is an introduction to some of the basic concepts that influence 
 ### Case I – Free Falling Object Under Gravity (no drag force)
 An object that is falling through a vacuum is subjected to only one external force, the gravitational force. Such an object is called a free-falling object because the net external force is just the weight of the object. The motion of a free-falling object can be described by Newton's second law of motion.
 
-![](images/1.png) 
+<p align="center">
+  <img src="images/1.png">
+</p> 
 			
 Where m – mass of the object
 	g – acceleration due to gravity
@@ -12,7 +14,9 @@ The gravitational acceleration decreases with the square of the distance from th
 
 Since a free-falling object is at constant acceleration with an initial velocity is zero, the velocity and position of the object can be given by the equations
 
-![](images/2.png) 
+<p align="center">
+  <img src="images/2.png">
+</p> 
 
 ### Case II – Free Falling Object Under Gravity (no drag force)
 If the object were falling through a fluid (either a gas or a liquid), there would be an additional drag force acting on the object. The drag force like friction, tends to oppose the motion of an object The vertical downward force due to gravity F_W  remains constant. However, the drag force is a complex entity that varies and largely depends upon the following factors.
@@ -27,11 +31,15 @@ If the object were falling through a fluid (either a gas or a liquid), there wou
  
 Taking into account all these factors, the drag force of a regular object at moderate speed may be given as 
 
-![](images/3.png) 
+<p align="center">
+  <img src="images/3.png">
+</p>  
 
 Initially, when the object is released, it gains velocity due to acceleration due to gravity. But as the object moves faster, the drag force increases appreciably. This can be described by Newton’s second law of motion.
 
-![](images/4.png)  
+<p align="center">
+  <img src="images/4.png">
+</p>   
 					    
 Where FW – Weight of the body
 	FD – Drag force experienced by the body
@@ -39,4 +47,6 @@ Where FW – Weight of the body
 	a – acceleration of the body
 A stage comes when the amount of upward air resistance force is equal to the downward gravity force and the object encounters a balance of forces. 
 
-![](images/5.png) 
+<p align="center">
+  <img src="images/5.png">
+</p> 
