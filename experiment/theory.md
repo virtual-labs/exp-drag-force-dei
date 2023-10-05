@@ -26,11 +26,11 @@ If the object were falling through a fluid (either a gas or a liquid), there wou
  
 Taking into account all these factors, the drag force of a regular object at moderate speed may be given as 
 
-![](images/3png) 
+![](images/3.png) 
 
 Initially, when the object is released, it gains velocity due to acceleration due to gravity. But as the object moves faster, the drag force increases appreciably. This can be described by Newton’s second law of motion.
 
-                                            ![](images/4.png) 
+![](images/4.png)  
 					    
 Where FW – Weight of the body
 	FD – Drag force experienced by the body
