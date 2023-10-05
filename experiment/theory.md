@@ -3,6 +3,7 @@ This experiment is an introduction to some of the basic concepts that influence 
 
 ### Case I – Free Falling Object Under Gravity (no drag force)
 An object that is falling through a vacuum is subjected to only one external force, the gravitational force. Such an object is called a free-falling object because the net external force is just the weight of the object. The motion of a free-falling object can be described by Newton's second law of motion.
+
 ![](images/1.png) 
 			
 Where m – mass of the object
