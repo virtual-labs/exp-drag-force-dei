@@ -23,4 +23,4 @@
 
 11.	The experiment may be repeated a number of times and tabulated above to get a mean value of the parameters measured. 
 
-### In real Simulation
+### In Simulation
