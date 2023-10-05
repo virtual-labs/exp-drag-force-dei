@@ -50,3 +50,96 @@ A stage comes when the amount of upward air resistance force is equal to the dow
 <p align="center">
   <img src="images/5.png">
 </p> 
+
+In other words, the vertical acceleration is zero and the object falls with constant velocity as described by Newton’s first law of motion. The constant vertical velocity is called the terminal velocity vt. The terminal velocity value is the final, constant velocity value achieved by the falling object.
+The value of terminal velocity can be determined using the above equations
+
+<p align="center">
+  <img src="images/6.png">
+</p> 
+
+The velocity of the object before attaining the terminal velocity can also be determined mathematically from the equation
+
+<p align="center">
+  <img src="images/7.png">
+</p>
+
+Where  k=1/2 CdρA = constant
+
+<p align="center">
+  <img src="images/8.png">
+</p>
+
+Integrating both sides
+
+<p align="center">
+  <img src="images/9.png">
+</p>
+
+<p align="center">
+  <img src="images/10.png">
+</p>
+
+Replacing √(mg/k)=√(mg/(1/2 Cd ρA))=vt, the above equation can be re-written as
+
+<p align="center">
+  <img src="images/11.png">
+</p>
+
+The position of the object with an initial velocity of zero may be given as
+
+<p align="center">
+  <img src="images/12.png">
+</p>
+
+### Experimental Setup
+The experimental setup consists of a custom-made long cylindrical glass jar of diameter 10 cm and height 2 meters. The cylinder is attached to a bottom of an air-tight chamber that has an opening at the side to connect a vacuum system and an opening at the base to drain the cylinder.
+
+A rod stand with a solid base is fixed outside the cylinder which can be used to clamp electromagnets and light gates at desired heights. To get accurate values of acceleration due to gravity, the cylinder may be maintained at partial vacuum by means of an industrial vacuum system connected to it.
+
+The electromagnet is lowered into the cylinder and clamped such that it is along the centre of the cylinder at the desired height. The electromagnet connected to a power supply can hold or release a steel object by a switch. If the switch is set to the ‘on’ position, current flows in the electromagnet holding the object. In the switch is ‘off”, the object is released. The switch is also connected to a datalogger which activates the timer once the object is released.
+
+Light gates are used in this experiment to detect the passing of the object through the ‘gate’. A Light gate is a digital switch-type sensor that is commonly used in timing experiments. It consists of an optical transmitter and receiver that can detect a solid object passing through the 'gate'. When used in conjunction with a data logger, light gates can measure the time a moving object takes to pass between them, allowing speed to be determined. If an object of size s cuts the light gate beam for time t, the average speed vavg of the object during that time shall be given as
+
+<p align="center">
+  <img src="images/13.png">
+</p>
+
+Light gates are used because of their accuracy. They can be set to react very quickly when the beam is broken which eliminates human reaction time errors. In the experiment, light gates are clamped to the rod stand at definite intervals around the cylinder, each connected to the data logger for calculating the time of passing of the object. 
+
+The data logger is connected to a computer system which is programmed to show the timer when the object is released, the time when the object passes through each of the light gates, and the time taken for the object to pass through a gate. 
+
+<p align="center">
+  <img src="images/14.png">
+</p>
+
+The experiment may be used to determine the following parameters
+
+•Acceleration due to gravity – The cylinder may be maintained in a vacuum to get accurate results or in air to get an approximate value.
+
+•Coefficient of drag and terminal velocity of the object in a fluid – The object should be smaller in size and the fluid should have sufficient density so that the object may attain terminal velocity within the liquid column The sources of error in the above experiment include.
+
+•The size of the object should be large enough to trigger the gate efficiently.
+
+•The experiment can only be adopted for transparent liquids that do not absorb the light beam.
+
+•The light beam is susceptible to reflection and refraction as it enters and leaves different materials (glass, fluid) which could cause false triggers.
+
+•The size of the object and the density of the liquid used must ensure that the terminal velocity is obtained within the liquid column. Greater-sized objects and less dense fluids require a greater liquid column to achieve the terminal velocity. 
+
+Note that the experiment may be performed without the use of light gates using the following two approaches
+
+1.The entire experimental setup may be recorded using a camera that captures the fall of the object. The video can be processed using a video analysis software that filters the position in each consecutive frames and plot velocity as a function of time.
+
+2.For measuring the velocity of object in vacuum or air, a motion sensor may be attached next to the electromagnet and connected to a data logger. This sensor directly records the position vs time graph.
+
+3.A more crude approach can be adopted for measuring the velocity of object in viscous liquids. In this approach, the experiment is performed manually be noting the time in a stop watch when the object passes though a specific point marked by an elastic band. The time is noted from the beginning of release till it passes each of the bands. The time taken to travel between the consecutive bands may be used to determine the average velocity of the object in between the elastic bands
+
+<p align="center">
+  <img src="images/15.png">
+</p>
+
+This approach may not be applicable for free falling objects in air/vacuum since the speed of the object will be very fast to note it using a stop-watch.
+
+
+
