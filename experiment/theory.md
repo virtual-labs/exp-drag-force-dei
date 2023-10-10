@@ -1,7 +1,7 @@
 # THEORY
 This experiment is an introduction to some of the basic concepts that influence the motion of an object when it falls down in a vacuum or a fluid (either a gas or a liquid).    
 
-### Case I – Free Falling Object Under Gravity (no drag force)
+### Case I – Free Falling Object In Vaccum (no drag force)
 An object that is falling through a vacuum is subjected to only one external force, the gravitational force. Such an object is called a free-falling object because the net external force is just the weight of the object. The motion of a free-falling object can be described by Newton's second law of motion.
 
 <p align="center">
@@ -12,20 +12,20 @@ Where m – mass of the object
 	g – acceleration due to gravity
 The gravitational acceleration decreases with the square of the distance from the center of the earth. However, for many practical problems, we can assume this factor to be a constant, which is generally taken as 9.8 m/s2 on the surface of the earth. Therefore, all free-falling objects, regardless of size, shape, or mass (or weight) will free-fall at the same rate. By measuring the velocity of the object at different intervals, one can experimentally determine the acceleration due to gravity. 
 
-Since a free-falling object is at constant acceleration with an initial velocity is zero, the velocity and position of the object can be given by the equations
+For a free-falling object with zero initial velocity, the position and velocity of the object at any time can be given by the equations
 
 <p align="center">
   <img src="images/2.png">
 </p> 
 
-### Case II – Free Falling Object Under Gravity (no drag force)
-If the object were falling through a fluid (either a gas or a liquid), there would be an additional drag force acting on the object. The drag force like friction, tends to oppose the motion of an object The vertical downward force due to gravity F_W  remains constant. However, the drag force is a complex entity that varies and largely depends upon the following factors.
+### Case II – Free Falling Object In Fluid (with drag force)
+If the object were falling through a fluid (either a gas or a liquid), it would be subjected to two forces, the gravitational force and a drag force. The drag force, like kinetic friction, tends to oppose the motion of an object. The vertical downward force due to gravity, Fw remains constant. However, the drag force is a complex entity that varies and largely depends upon the following factors
 
 * Projected area of the object facing the fluid A- The area of the orthographic projection of the object on a plane perpendicular to the direction of fall/flow.
  
 * Velocity of the object v - When an object is moving at high velocity through air, the magnitude of the drag force is proportional to the square of the speed. As objects move faster, they encounter more drag.
  
-* Coefficient of drag C_d  - The drag coefficient is a dimensionless quantity that is used to quantify the drag or resistance of an object in a fluid environment. The drag coefficient is a function of several complex parameters like the shape of the body, the roughness of the surface, and fluid properties such as density, viscosity, velocity, and compressibility. The shape of an object has a very great effect on the coefficient of drag (airfoil shape has the lowest drag coefficient and the rectangular box has the highest). The important matching parameter for viscosity, velocity, and density that affects Cd is the Reynolds number which is used to characterize flow as laminar or turbulent. The drag coefficient can also depend upon velocity especially in cases when the object is traveling at high velocities (where it is related to the Mach number). In most cases, the coefficient of drag is determined empirically in a controlled environment such as a wind tunnel where we can set the viscosity, density, and area. In this experiment, we will assume that the coefficient of drag is a constant value.
+* Coefficient of drag Cd  - The drag coefficient is a dimensionless quantity that is used to quantify the drag or resistance of an object in a fluid environment. The drag coefficient is a function of several parameters like the shape of the body, inclination, roughness of the surface, and fluid properties such as density, viscosity, velocity, and compressibility. The shape of an object has a very great effect on the coefficient of drag (airfoil shape has the lowest drag coefficient and cube has the highest). The drag coefficient can also depend upon velocity especially in cases when the object is traveling at high velocities (where it is related to the Mach number). In most cases, the coefficient of drag is determined empirically in a controlled environment such as a wind tunnel where we can set the viscosity, density, and area. Since the shape of the object plays a major role, we will assume a constant value for the coefficient of drag.
  
 * Density of the fluid ρ - Lift and drag depend linearly on the density of the fluid. The air density affects the drag force explicitly through this proportionality and implicitly through the Reynolds number.
  
@@ -93,21 +93,25 @@ The position of the object with an initial velocity of zero may be given as
 </p>
 
 ### Experimental Setup
-The experimental setup consists of a custom-made long cylindrical glass jar of diameter 10 cm and height 2 meters. The cylinder is attached to a bottom of an air-tight chamber that has an opening at the side to connect a vacuum system and an opening at the base to drain the cylinder.
+The experimental setup consists of 
 
-A rod stand with a solid base is fixed outside the cylinder which can be used to clamp electromagnets and light gates at desired heights. To get accurate values of acceleration due to gravity, the cylinder may be maintained at partial vacuum by means of an industrial vacuum system connected to it.
+•A custom-made long cylindrical glass jar of diameter 20 cm and height 2 meters to contain the vacuum/fluid through which the object is falling. The cylinder is attached to the bottom of an air-tight chamber that has an opening at the side to connect it to an industrial vacuum system and an opening at the base to drain the cylinder. 
 
-The electromagnet is lowered into the cylinder and clamped such that it is along the centre of the cylinder at the desired height. The electromagnet connected to a power supply can hold or release a steel object by a switch. If the switch is set to the ‘on’ position, current flows in the electromagnet holding the object. In the switch is ‘off”, the object is released. The switch is also connected to a datalogger which activates the timer once the object is released.
+•A rod stand with a solid base fixed outside the cylinder to clamp electromagnets and light gates at desired heights. 
 
-Light gates are used in this experiment to detect the passing of the object through the ‘gate’. A Light gate is a digital switch-type sensor that is commonly used in timing experiments. It consists of an optical transmitter and receiver that can detect a solid object passing through the 'gate'. When used in conjunction with a data logger, light gates can measure the time a moving object takes to pass between them, allowing speed to be determined. If an object of size s cuts the light gate beam for time t, the average speed vavg of the object during that time shall be given as
+•Electromagnet clamped to the rod stand and placed inside the top of the cylinder. The electromagnet connected to a power supply can hold or release a steel object by a switch. If the switch is set to the ‘on’ position, current flows in the electromagnet holding the object. If the switch is ‘off”, the object is released. The switch is also connected to a datalogger which activates the timer once the object is released. 
+
+•Light gates clamped to the rod stand at definite intervals, each connected to the data logger. Light gates can measure the time a moving object takes to pass between them, allowing speed to be determined. If an object of size s cuts the light gate beam for time t, the average speed Vavg of the object during that time shall be given as
+
 
 <p align="center">
   <img src="images/13.png">
 </p>
 
-Light gates are used because of their accuracy. They can be set to react very quickly when the beam is broken which eliminates human reaction time errors. In the experiment, light gates are clamped to the rod stand at definite intervals around the cylinder, each connected to the data logger for calculating the time of passing of the object. 
+Light gates are used because of their accuracy. They can be set to react very quickly when the beam is broken which eliminates human reaction time errors. 
 
-The data logger is connected to a computer system which is programmed to show the timer when the object is released, the time when the object passes through each of the light gates, and the time taken for the object to pass through a gate. 
+•Data logger which receives the inputs from light gates and is connected to a computer system which is programmed to show the timer when the object is released, the time when the object passes through each of the light gates and the time taken for the object to pass through a gate. 
+ 
 
 <p align="center">
   <img src="images/14.png">
@@ -129,11 +133,11 @@ The experiment may be used to determine the following parameters
 
 Note that the experiment may be performed without the use of light gates using the following two approaches
 
-1.The entire experimental setup may be recorded using a camera that captures the fall of the object. The video can be processed using a video analysis software that filters the position in each consecutive frames and plot velocity as a function of time.
+1. The entire experimental setup may be recorded using a camera that captures the fall of the object. The video can be processed using video analysis software that filters the position in each consecutive frame and plots velocity as a function of time.
 
-2.For measuring the velocity of object in vacuum or air, a motion sensor may be attached next to the electromagnet and connected to a data logger. This sensor directly records the position vs time graph.
+2. For measuring the velocity of an object in vacuum or air, a motion sensor may be attached next to the electromagnet and connected to a data logger. This sensor directly records the position vs time graph.
 
-3.A more crude approach can be adopted for measuring the velocity of object in viscous liquids. In this approach, the experiment is performed manually be noting the time in a stop watch when the object passes though a specific point marked by an elastic band. The time is noted from the beginning of release till it passes each of the bands. The time taken to travel between the consecutive bands may be used to determine the average velocity of the object in between the elastic bands
+3. A more crude approach can be adopted for measuring the velocity of objects in viscous liquids. In this approach, the experiment is performed manually by noting the time in a stopwatch when the object passes through a specific point marked by an elastic band. The time is noted from the beginning of release till it passes each of the bands. The time taken to travel between the consecutive bands may be used to determine the average velocity of the object in between the elastic bands
 
 <p align="center">
   <img src="images/15.png">
