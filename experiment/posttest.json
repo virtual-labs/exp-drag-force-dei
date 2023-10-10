@@ -2,38 +2,59 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What are the dimensions of the drag coefficient? ",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Newton",
+        "b": "Newton/s",
+        "c": "kgm/s",
+        "d": "Dimensionless"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+     
+      "correctAnswer": "d",
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which of the following statements is true regarding acceleration due to gravity?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Acceleration due to gravity at the poles is higher compared to that at the equator",
+        "b": "Acceleration due to gravity is the same for all heights above the earth",
+        "c": "Acceleration due to gravity is constant at all places on earth",
+        "d": "None of the above"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "a",
+    },
+    {
+      "question": "Two balls of mass m and 2m each are dropped from the top of a building with no significant air resistance. If t1 and t2 are the time required for the masses m and 2m to reach the ground respectively, which of the following statements are true ?",
+      "answers": {
+        "a": "t1 = t2",
+        "b": "2t1 = t2",
+        "c": "t1 = 2t2",
+        "d": "t1 < 2t2"
       },
+      "correctAnswer": "a",
+    },
+    {
+      "question": "Which of the following graphs represents an object having constant velocity?",
+      "image": "images/posttest_1.png",
+      "answers": {
+        "a": "A",
+        "b": "B",
+        "c": "Both A and B",
+        "d": "Both C and D"
+      },
+     
       "correctAnswer": "c",
-      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the projected area of the following body as it falls vertically downwards in the fluid ?",
+      "image": "images/posttest_2.png",
+      "answers": {
+        "a": "πr2",
+        "b": "πR2",
+        "c": "π*(R2+r2)",
+        "d": "(π/2)*(R2+r2)"
+      },
+     
+      "correctAnswer": "b",
     }
   ]
 }
