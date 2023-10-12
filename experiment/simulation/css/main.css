@@ -28,7 +28,7 @@ body {
 #container {
   width: 1330px;
   height: 610px;
-  background: url("images/Background_sim_new.jpg");
+  background: url("images/Background_sim.jpg");
   background-repeat: no-repeat;
 }
 
@@ -181,7 +181,7 @@ h3 {
 }
 #slider_area {
   position: absolute;
-  left: 40px;
+  left: 30px;
   top: 390px;
 }
 #initialAreaValue {
