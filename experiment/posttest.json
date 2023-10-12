@@ -10,7 +10,7 @@
         "d": "Dimensionless"
       },
      
-      "correctAnswer": "d",
+      "correctAnswer": "d"
     },
     {
       "question": "Which of the following statements is true regarding acceleration due to gravity?",
@@ -20,7 +20,7 @@
         "c": "Acceleration due to gravity is constant at all places on earth",
         "d": "None of the above"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "a"
     },
     {
       "question": "Two balls of mass m and 2m each are dropped from the top of a building with no significant air resistance. If t1 and t2 are the time required for the masses m and 2m to reach the ground respectively, which of the following statements are true ?",
@@ -30,10 +30,11 @@
         "c": "t1 = 2t2",
         "d": "t1 < 2t2"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "a"
     },
     {
       "question": "Which of the following graphs represents an object having constant velocity?",
+      "image": "images/posttest_1.png",
     "answers": {
         "a": "A",
         "b": "B",
@@ -41,11 +42,11 @@
         "d": "Both C and D"
       },
      
-      "correctAnswer": "c",
+      "correctAnswer": "c"
     },
     {
       "question": "What is the projected area of the following body as it falls vertically downwards in the fluid ?",
-      
+      "image": "images/posttest_2.png",
       "answers": {
         "a": "πr2",
         "b": "πR2",
@@ -53,7 +54,7 @@
         "d": "(π/2)*(R2+r2)"
       },
      
-      "correctAnswer": "b",
+      "correctAnswer": "b"
     }
   ]
 }
