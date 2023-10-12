@@ -34,6 +34,7 @@
     },
     {
       "question": "Which of the following graphs represents an object having constant velocity?",
+      "image": "images/posttest_1.png",
     "answers": {
         "a": "A",
         "b": "B",
@@ -45,7 +46,7 @@
     },
     {
       "question": "What is the projected area of the following body as it falls vertically downwards in the fluid ?",
-      
+      "image": "images/posttest_2.png",
       "answers": {
         "a": "πr2",
         "b": "πR2",
