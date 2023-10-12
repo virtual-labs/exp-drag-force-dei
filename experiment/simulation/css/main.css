@@ -28,7 +28,7 @@ body {
 #container {
   width: 1330px;
   height: 610px;
-  background: url("images/Background_sim.jpg");
+  background: url("../images/Background_sim.jpg");
   background-repeat: no-repeat;
 }
 
