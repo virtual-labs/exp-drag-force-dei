@@ -40,7 +40,7 @@ function showArea(newArea){
   display.innerHTML = newArea;
   document.getElementById("area1").innerHTML = newArea;
   document.getElementById("area2").innerHTML = newArea
-  area = Number(newArea);
+  area = Number(newArea)/1000000;
   reset();
 }
 function showSize(newSize){
@@ -49,7 +49,7 @@ function showSize(newSize){
   document.getElementById("ballSize1").innerHTML = newSize;
   document.getElementById("ballSize2").innerHTML = newSize;
 
-  size = Number(newSize);
+  size = Number(newSize)/1000;
   reset();
 }
 
@@ -57,18 +57,20 @@ const checkbox = document.querySelector('#lockCheckbox');
 function lock(){
   if (radioInput.checked && radioInput.value === 'GLYCERINE') {
     rho = 1260;   // kg/m^3 
+    document.getElementById("lockPopUp").textContent = "Parameters are locked" ;
+
 
   } else {
     rho = 997.77;   // kg/m^3 
+    document.getElementById("lockPopUp").textContent = "Parameters are locked" ;
 
   }
-  document.getElementById("fluidDensity").textContent= rho;
+  // document.getElementById("fluidDensity").textContent= rho;
 
-  document.getElementById("density").textContent = rho ;
-  document.getElementById("gravity").textContent = g +  "m/"+"s\u00B2";
-  document.getElementById("gravity1").textContent = g + "m/"+"s\u00B2";
-  document.getElementById("gravity2").textContent = g + "m/"+"s\u00B2";
-  document.getElementById("gravity3").textContent = g + "m/"+"s\u00B2";
+  // document.getElementById("density").textContent = rho ;
+  document.getElementById("gravity1").textContent = g + " m/"+"s\u00B2";
+  document.getElementById("gravity2").textContent = g + " m/"+"s\u00B2";
+  document.getElementById("gravity3").textContent = g + " m/"+"s\u00B2";
 
 
   checkbox.addEventListener('change', function() {
@@ -99,13 +101,15 @@ function lock(){
 function uncheckCheckbox(checkboxId) {
   const checkbox = document.getElementById(checkboxId);
   checkbox.checked = false;
+  document.getElementById("lockPopUp").textContent = "" ;
+
 }
 
 
 var mass = 0.005;
 var dragCoefficient = 0.5;
-var area = 5;
-var size = 5;
+var area = 50/100000;
+var size = 0.005;
 var rho;
 
 var running = 0;
@@ -150,7 +154,7 @@ function lightGatesTimes() {
         // if (Math.round(y1) ===lgp ) {
           if (y1 > 140 && (y_1 === lgp) && (y_1 !== last_y1 )) {
             vel1Array.push(vel1);
-            var lgCrossTime1  = (size*0.01)/vel1;   
+            var lgCrossTime1  = (size)/vel1;   
             sizeArray1.push(lgCrossTime1.toFixed(3));                   //If an object of size s cuts the light gate beam for time 
             lgTimes1.push(totalSeconds.toFixed(3));
             last_y1 = y_1;
@@ -170,7 +174,7 @@ function lightGatesTimes() {
         lgTimes2.push(totalSeconds.toFixed(3));
         
         vel2Array.push(vel2);
-        var lgCrossTime2  = (size*0.01)/vel2;   
+        var lgCrossTime2  = (size)/vel2;   
         sizeArray2.push(lgCrossTime2.toFixed(3) );                   //If an object of size s cuts the light gate beam for time 
         dragArray.push(dragF);
         last_y2 = y_2;
@@ -268,6 +272,10 @@ function displayTime(minutes, seconds, milliseconds) {
   return totalSeconds;
 }
 
+var container = document.getElementById("container");
+var table1Anchor = document.createElement("a");
+var table2Anchor = document.createElement("a");
+
 function increment() {
   
   if (runFlag===1) {
@@ -283,7 +291,6 @@ function increment() {
         displayTime(minutes, seconds, milliseconds);
         if (y1 < canvas.height - 70) {
           vel1 = g * totalSeconds;
-          document.getElementById("velocityOfBall1").textContent = vel1.toFixed(3) + " m/s";
         }
 
         if (y2 < canvas.height - 70) {
@@ -291,7 +298,7 @@ function increment() {
           vel2 = velocityOfBall2(terminalVelocity, g, totalSeconds);
           // document.getElementById("velocityOfBall2").textContent =vel2.toFixed(3)+ " m/s";
           dragF = calculateDragForce(vel2);
-          document.getElementById("dragForce").textContent =dragF.toFixed(3)+ " N";
+          // document.getElementById("dragForce").textContent =dragF.toFixed(3)+ " N";
           document.getElementById("dragForce_final").textContent =dragF.toFixed(3)+ " N";
         }
 
@@ -300,6 +307,30 @@ function increment() {
     }
     if (running === 0) {
       alert("terminal velocity is achieved");
+      // Create Observation Table 1 anchor element
+      table1Anchor.classList.add("button-table1");
+      table1Anchor.href = "#popup1";
+      table1Anchor.textContent = "Obervation Table 1";
+
+      // Create Observation Table 2 anchor element
+      table2Anchor.classList.add("button-table2");
+      table2Anchor.href = "#popup2";
+      table2Anchor.textContent = "Obervation Table 2";
+
+      // Append the anchor elements to a parent container (e.g., a div with ID "container")
+      container.appendChild(table1Anchor);
+      container.appendChild(table2Anchor);
+
+      const result = document.getElementById("result");
+      result.textContent = "Result:-";
+      result.style.fontWeight = 'bold';
+      
+      document.getElementById("gravity").textContent = "• Acceleration due to \ngravity :"+ g + " m/"+"s\u00B2 ";
+      document.getElementById("dragForce").textContent ="• Maximum drag force\nin fluid : "+dragF.toFixed(3)+ " N";
+      document.getElementById("terminaVelocity").textContent ="• Terminal velocity of ball 2\nin fluid: "+ terminalVel.toFixed(3)+ " m/s";
+
+      document.getElementById("velocityOfBall1").textContent = "• Final velocity of ball 1\nin vaccum: " +vel1.toFixed(3) + " m/s";
+
     }
   }
   else{
@@ -314,9 +345,8 @@ function calculateTerminalVelocity(){
   } else {
     rho = 997.77;   // kg/m^3 
   }
- // area = area/10000;        //converting cm^2 to m^2       
-  terminalVel = Math.sqrt((2 * mass * g) / (rho * (area/10000)* dragCoefficient));
-  document.getElementById("terminaVelocity").textContent = terminalVel.toFixed(3)+ " m/s";
+  terminalVel = Math.sqrt((2 * mass * g) / (rho * (area)* dragCoefficient));
+  // document.getElementById("terminaVelocity").textContent = terminalVel.toFixed(3)+ " m/s";
   document.getElementById("terminaVelocity1").textContent = terminalVel.toFixed(3)+ " m/s";
           
   return terminalVel;
@@ -334,7 +364,7 @@ function calculateDragForce(vel2){
   } else {
     rho = 997.77;   // kg/m^3 
   }
-  dragForce = 0.5* dragCoefficient*rho*(area/10000)*vel2*vel2;
+  dragForce = 0.5* dragCoefficient*rho*(area)*vel2*vel2;
   return dragForce;
 }
 
@@ -369,8 +399,8 @@ function drawMotion() {
       
       
       drawFlask();
-      drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,graphTitle1);
-      drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,graphTitle2);
+      drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+      drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
       time = index/712
       // console.log(time)
       
@@ -460,7 +490,6 @@ function play() {
   let checkbox = document.getElementById("lockCheckbox");
   if (!checkbox.checked) {
     alert("Lock the input parameters");
-    
   }
   else{
     if (checkbox.checked && !isBallFalling){
@@ -488,7 +517,9 @@ function play() {
       dy2 = +speedBall2.toFixed(3)
 
     }
-   
+   console.log(area + "Area")
+   console.log(size + "size")
+
 }}
 
 function reset() {
@@ -539,24 +570,35 @@ function reset() {
       Glycerine.disabled = false;
       Water.disabled = false;
   // drawMotion();
-   document.getElementById("velocityOfBall1").textContent = "0.000" + " m/s";
-  document.getElementById("terminaVelocity").textContent ="0.000"  + " m/s";
+
+
+   document.getElementById("velocityOfBall1").textContent = "";
+  document.getElementById("terminaVelocity").textContent ="";
   document.getElementById("terminaVelocity1").textContent ="0.000"  + " m/s";
+
   // document.getElementById("velocityOfBall2").textContent = "0.000" + " m/s";
   // document.getElementById("calculated_time").textContent = "0.000" + " s";
-  document.getElementById("density").textContent = 0 ;
-  document.getElementById("dragForce").textContent ="0.000"+ " N";
+  // document.getElementById("density").textContent = 0 ;
+  
+  document.getElementById("dragForce").textContent ="";
   document.getElementById("dragForce_final").textContent ="0.000"+ " N";
 
   
-  document.getElementById("gravity").textContent =  0 + "m/"+"s\u00B2";
-  document.getElementById("gravity1").textContent = 0 + "m/"+"s\u00B2";
-  document.getElementById("gravity2").textContent = 0 + "m/"+"s\u00B2";
-  document.getElementById("gravity3").textContent = 0 + "m/"+"s\u00B2";
+  document.getElementById("gravity").textContent =  "";
+  document.getElementById("gravity1").textContent = 0 + " m/"+"s\u00B2";
+  document.getElementById("gravity2").textContent = 0 + " m/"+"s\u00B2";
+  document.getElementById("gravity3").textContent = 0 + " m/"+"s\u00B2";
 
-  drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,graphTitle1);
-  drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,graphTitle2);
- 
+       
+
+  drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+  drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
+
+  
+  container.removeChild(table1Anchor);     // Remove Observation Table 1 anchor element
+
+  container.removeChild(table2Anchor);    // Remove Observation Table 2 anchor element
+
   isCanvasUpdating = false; // Reset the flag to allow canvas update
 }
 
@@ -859,13 +901,15 @@ var yNumDecimals = 0;
 var yNumDecimals1 = 2;
 
 var xAxisTitle = "t (s)";
-var yAxisTitle1 = "Velocity (m/s)";
-var yAxisTitle2 = "Drag Force (N)";
+var yAxisTitle1 = "Velocity";
+var yAxisTitle2 = "Drag ";
+var yAxisTitle_1 = "(m/s)";
+var yAxisTitle_2 = "Force (N)";
 
 var graphTitle1 = "Velocity vs time";
 var graphTitle2 = "Drag force vs time";
 
-function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxisStart2,xNum,yNum,xOffset,xIncrement,yIncrement,yIncrement1,xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle,graphTitle) {
+function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxisStart2,xNum,yNum,xOffset,xIncrement,yIncrement,yIncrement1,xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle,y_AxisTitle,graphTitle) {
   // set background color for the graph
   ctx.fillStyle = "#ffd4d4";
   ctx.fillRect(xAxisStart, yAxisStart, 30 * xNum, 30 * yNum);
@@ -888,7 +932,7 @@ function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxi
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     axisValue = xOffset + xIncrement * i;
-    axisLabel = axisValue.toFixed(xNumDecimals);
+    axisLabel = axisValue.toFixed(1);
 
     ctx.fillText(axisLabel, xAxisStart + 30 * i, yAxisStart + 30 * yNum + 20);
   }
@@ -932,7 +976,7 @@ function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxi
   ctx.lineTo(xAxisStart + 30 * xNum + 10, yAxisStart + 30 * yNum + 6);
   ctx.lineJoin = "miter";
   ctx.stroke();
-  ctx.font = "16pt Calibri";
+  ctx.font = "12pt Calibri";
   ctx.fillStyle = "black";
   ctx.textAlign = "left";
   ctx.fillText(xAxisTitle, xAxisStart + 30 * xNum + 24, yAxisStart + 30 * yNum);
@@ -954,9 +998,11 @@ function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxi
   ctx.textAlign = "center";
   //         console.log("In the drawMotion function, with yAxisTitle = " + yAxisTitle + xAxisStart );
 
-  ctx.font = "12pt Calibri";
+  ctx.font = "10pt Calibri";
   ctx.fillStyle = "black";
-  ctx.fillText(yAxisTitle, xAxisStart - 30, yAxisStart - 35);
+  ctx.fillText(yAxisTitle, xAxisStart - 25, yAxisStart - 35);
+  ctx.fillText(y_AxisTitle, xAxisStart - 25, yAxisStart - 22);
+
 
   // graph title
   ctx.font = "bold 14pt Calibri";
@@ -968,6 +1014,5 @@ function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxi
 reset();
 drawCanvasBalls(); // Draw the initial canvas with the balls
 drawFlask();
-drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,graphTitle1);
-drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,graphTitle2);
-
+drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
