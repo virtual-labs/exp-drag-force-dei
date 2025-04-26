@@ -1,0 +1,42 @@
+
+/home/runner/work/exp-drag-force-dei/exp-drag-force-dei/experiment/simulation/js/main.js
+   15:10   warning  'showmass' is defined but never used                    no-unused-vars
+   28:10   warning  'showDrag' is defined but never used                    no-unused-vars
+   38:10   warning  'showArea' is defined but never used                    no-unused-vars
+   46:10   warning  'showSize' is defined but never used                    no-unused-vars
+   57:10   warning  'lock' is defined but never used                        no-unused-vars
+   82:7    warning  'Glycerine' is not defined                              no-undef
+   83:7    warning  'Water' is not defined                                  no-undef
+   93:7    warning  'Glycerine' is not defined                              no-undef
+   94:7    warning  'Water' is not defined                                  no-undef
+  130:5    warning  'flag' is assigned a value but never used               no-unused-vars
+  173:11   warning  'lgp' is already defined                                no-redeclare
+  181:24   warning  'dragF' is not defined                                  no-undef
+  254:5    warning  'currentTimeString' is assigned a value but never used  no-unused-vars
+  283:7    warning  'runFlag' is not defined                                no-undef
+  302:11   warning  'dragF' is not defined                                  no-undef
+  304:67   warning  'dragF' is not defined                                  no-undef
+  331:93   warning  'dragF' is not defined                                  no-undef
+  332:108  warning  'terminalVel' is not defined                            no-undef
+  350:3    warning  'terminalVel' is not defined                            no-undef
+  352:61   warning  'terminalVel' is not defined                            no-undef
+  354:10   warning  'terminalVel' is not defined                            no-undef
+  426:15   warning  'y' is already defined                                  no-redeclare
+  438:18   warning  'i' is already defined                                  no-redeclare
+  441:15   warning  'graphTime' is already defined                          no-redeclare
+  447:15   warning  'x' is already defined                                  no-redeclare
+  448:15   warning  'y' is already defined                                  no-redeclare
+  458:16   warning  'i' is already defined                                  no-redeclare
+  459:15   warning  'graphTime' is already defined                          no-redeclare
+  461:15   warning  'terminaly' is already defined                          no-redeclare
+  463:11   warning  'dragF' is not defined                                  no-undef
+  464:13   warning  'x' is already defined                                  no-redeclare
+  465:13   warning  'y' is already defined                                  no-redeclare
+  465:51   warning  'dragF' is not defined                                  no-undef
+  505:5    warning  'runFlag' is not defined                                no-undef
+  531:3    warning  'runFlag' is not defined                                no-undef
+  572:7    warning  'Glycerine' is not defined                              no-undef
+  573:7    warning  'Water' is not defined                                  no-undef
+
+✖ 37 problems (0 errors, 37 warnings)
+
