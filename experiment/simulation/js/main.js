@@ -26,7 +26,7 @@ function showmass(newmass) {
   reset();
 }
 function showDrag(newDrag) {
-  //get the element
+  //get the elemens
   var display = document.getElementById("initialDragValue");
   //show the amount
   display.innerHTML = newDrag;
