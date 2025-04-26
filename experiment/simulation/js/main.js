@@ -1,12 +1,13 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-const slider_mass = document.getElementById("currentmass");
-const slider_cof = document.getElementById("currentDragValue");
-const slider_area = document.getElementById("currentAreaValue");
-const slider_size = document.getElementById("currentSizeValue");
+const slider_mass = document.getElementById('currentmass');
+const slider_cof = document.getElementById('currentDragValue');
+const slider_area = document.getElementById('currentAreaValue');
+const slider_size = document.getElementById('currentSizeValue');
 
-const radioInput = document.getElementById("Glycerine");
+
+const radioInput = document.getElementById('Glycerine');
 var isCanvasUpdating = false;
 document.getElementById("playButton").addEventListener("click", play);
 document.getElementById("resetButton").addEventListener("click", reset);
@@ -21,7 +22,7 @@ function showmass(newmass) {
   mass1.innerHTML = newmass;
   var mass2 = document.getElementById("mass2");
   mass2.innerHTML = newmass;
-  mass = Number(newmass) / 1000;
+  mass = (Number(newmass))/1000;
   reset();
 }
 function showDrag(newDrag) {
@@ -34,41 +35,45 @@ function showDrag(newDrag) {
   dragCoefficient = Number(newDrag);
   reset();
 }
-function showArea(newArea) {
+function showArea(newArea){
   var display = document.getElementById("initialAreaValue");
   display.innerHTML = newArea;
   document.getElementById("area1").innerHTML = newArea;
-  document.getElementById("area2").innerHTML = newArea;
-  area = Number(newArea) / 1000000;
+  document.getElementById("area2").innerHTML = newArea
+  area = Number(newArea)/1000000;
   reset();
 }
-function showSize(newSize) {
+function showSize(newSize){
   var display = document.getElementById("initialSizeValue");
   display.innerHTML = newSize;
   document.getElementById("ballSize1").innerHTML = newSize;
   document.getElementById("ballSize2").innerHTML = newSize;
 
-  size = Number(newSize) / 1000;
+  size = Number(newSize)/1000;
   reset();
 }
 
-const checkbox = document.querySelector("#lockCheckbox");
-function lock() {
-  if (radioInput.checked && radioInput.value === "GLYCERINE") {
-    rho = 1260; // kg/m^3
-    document.getElementById("lockPopUp").textContent = "Parameters are locked";
+const checkbox = document.querySelector('#lockCheckbox');
+function lock(){
+  if (radioInput.checked && radioInput.value === 'GLYCERINE') {
+    rho = 1260;   // kg/m^3 
+    document.getElementById("lockPopUp").textContent = "Parameters are locked" ;
+
+
   } else {
-    rho = 997.77; // kg/m^3
-    document.getElementById("lockPopUp").textContent = "Parameters are locked";
+    rho = 997.77;   // kg/m^3 
+    document.getElementById("lockPopUp").textContent = "Parameters are locked" ;
+
   }
   // document.getElementById("fluidDensity").textContent= rho;
 
   // document.getElementById("density").textContent = rho ;
-  document.getElementById("gravity1").textContent = g + " m/" + "s\u00B2";
-  document.getElementById("gravity2").textContent = g + " m/" + "s\u00B2";
-  document.getElementById("gravity3").textContent = g + " m/" + "s\u00B2";
+  document.getElementById("gravity1").textContent = g + " m/"+"s\u00B2";
+  document.getElementById("gravity2").textContent = g + " m/"+"s\u00B2";
+  document.getElementById("gravity3").textContent = g + " m/"+"s\u00B2";
 
-  checkbox.addEventListener("change", function () {
+
+  checkbox.addEventListener('change', function() {
     if (this.checked) {
       slider_mass.disabled = true;
       slider_cof.disabled = true;
@@ -77,29 +82,35 @@ function lock() {
       Glycerine.disabled = true;
       Water.disabled = true;
       checkbox.disabled = true;
-
+      
       // drawMotion();
+      
     } else {
       slider_mass.disabled = false;
-      slider_cof.disabled = false;
+      slider_cof.disabled =false ;
       slider_area.disabled = false;
       slider_size.disabled = false;
       Glycerine.disabled = false;
       Water.disabled = false;
       checkbox.disabled = false;
+      
       reset();
-    }
+    }   
+
   });
+
 }
 function uncheckCheckbox(checkboxId) {
   const checkbox = document.getElementById(checkboxId);
   checkbox.checked = false;
-  document.getElementById("lockPopUp").textContent = "";
+  document.getElementById("lockPopUp").textContent = "" ;
+
 }
+
 
 var mass = 0.005;
 var dragCoefficient = 0.5;
-var area = 50 / 100000;
+var area = 50/100000;
 var size = 0.005;
 var rho;
 
@@ -112,24 +123,24 @@ var x1 = 150;
 var y1 = 75;
 var x2 = 360;
 var y2 = 75;
-var dy1 = 0.75 * 2; // Vertical speed
+var dy1 = 0.75*2; // Vertical speed
 var dy2 = 0;
 
 var isBallFalling = false;
 var flag = false;
-vel2;
+vel2
 const lgTimes1 = [];
 const lgTimes2 = [];
 const vel1Array = [];
 const vel2Array = [];
 const dragArray = [];
-const sizeArray1 = [];
-const sizeArray2 = [];
+const sizeArray1= [];
+const sizeArray2= [];
 
 var d = 105;
-var min = 9.7;
-var max = 9.8;
-var g = (Math.random() * (max - min + 0.01) + min).toFixed(2);
+var min = 9.70;
+var max = 9.80;
+var g =((Math.random() * (max - min +0.01) )+ min).toFixed(2) ;
 var vel1 = 0;
 var vel2 = 0;
 let last_y2 = null;
@@ -137,32 +148,36 @@ let last_y1 = null;
 function lightGatesTimes() {
   if (isBallFalling) {
     if (y1 < canvas.height - 75) {
-      var y_1 = Math.ceil(y1); // light gate position at y1
+    var y_1 = Math.ceil(y1);       // light gate position at y1
 
       for (let i = 1; i < 11; i++) {
-        var lgp = Math.ceil(d + 36 * i); // light gate position at y1
+
+        var lgp  = Math.ceil(d + 36 * i)   // light gate position at y1
         // if (Math.round(y1) ===lgp ) {
-        if (y1 > 140 && y_1 === lgp && y_1 !== last_y1) {
-          vel1Array.push(vel1);
-          var lgCrossTime1 = size / vel1;
-          sizeArray1.push(lgCrossTime1.toFixed(3)); //If an object of size s cuts the light gate beam for time
-          lgTimes1.push(totalSeconds.toFixed(3));
-          last_y1 = y_1;
+          if (y1 > 140 && (y_1 === lgp) && (y_1 !== last_y1 )) {
+            vel1Array.push(vel1);
+            var lgCrossTime1  = (size)/vel1;   
+            sizeArray1.push(lgCrossTime1.toFixed(3));                   //If an object of size s cuts the light gate beam for time 
+            lgTimes1.push(totalSeconds.toFixed(3));
+            last_y1 = y_1;
+
         }
       }
     }
   }
   if (y2 < canvas.height - 70) {
-    var y_2 = Math.ceil(y2); // light gate position at y2
+    var y_2 = Math.ceil(y2);       // light gate position at y2
 
     for (let i = 0; i < 11; i++) {
-      var lgp = Math.ceil(d + 35.05 * i); // light gate position
-      if (y2 > 140 && y_2 === lgp && y_2 !== last_y2) {
-        lgTimes2.push(totalSeconds.toFixed(3));
 
+      var lgp = Math.ceil(d + 35.05 * i);       // light gate position
+      if (y2 > 140 && y_2 === lgp && (y_2 !== last_y2 )) {
+
+        lgTimes2.push(totalSeconds.toFixed(3));
+        
         vel2Array.push(vel2);
-        var lgCrossTime2 = size / vel2;
-        sizeArray2.push(lgCrossTime2.toFixed(3)); //If an object of size s cuts the light gate beam for time
+        var lgCrossTime2  = (size)/vel2;   
+        sizeArray2.push(lgCrossTime2.toFixed(3) );                   //If an object of size s cuts the light gate beam for time 
         dragArray.push(dragF);
         last_y2 = y_2;
       }
@@ -181,19 +196,22 @@ function renderTimeValues() {
     document.getElementById(`lg1Time${i}`).textContent = lgTimes1[i];
     document.getElementById(`lg1vel${i}`).textContent = vel1Array[i].toFixed(2);
     document.getElementById(`lg1CrossTime${i}`).textContent = sizeArray1[i];
+
   }
   for (let i = 0; i < lgTimes2.length; i++) {
     const textX = 450;
     const textY = d + (i + 1) * 36;
 
     ctx.fillText(lgTimes2[i], textX, textY);
-    document.getElementById(`lg2Time${i}`).textContent = lgTimes2[i];
+    document.getElementById(`lg2Time${i}`).textContent = lgTimes2[i]
     document.getElementById(`lg2vel${i}`).textContent = vel2Array[i].toFixed(3);
-    document.getElementById(`dragForce${i}`).textContent =
-      dragArray[i].toFixed(3);
+    document.getElementById(`dragForce${i}`).textContent = dragArray[i].toFixed(3);
     document.getElementById(`lg2CrossTime${i}`).textContent = sizeArray2[i];
+
   }
+
 }
+
 
 function drawBall(x, y) {
   ctx.beginPath();
@@ -228,7 +246,7 @@ function moveBall() {
       isBallFalling = false;
       running = 0;
     }
-    lightGatesTimes();
+  lightGatesTimes();
   }
 }
 
@@ -261,11 +279,12 @@ var table1Anchor = document.createElement("a");
 var table2Anchor = document.createElement("a");
 
 function increment() {
-  if (runFlag === 1) {
-    if (running === 1) {
+  
+  if (runFlag===1) {
+    if(running===1){
       setTimeout(function () {
         var currentTime = performance.now();
-        var elapsedMilliseconds = (currentTime - startTime) * 0.1 * 2;
+        var elapsedMilliseconds = (currentTime - startTime) * 0.1*2;
         time = Math.floor(elapsedMilliseconds).toFixed(2);
         var minutes = Math.floor(time / 60000);
         var seconds = Math.floor((time % 60000) / 1000);
@@ -282,8 +301,7 @@ function increment() {
           // document.getElementById("velocityOfBall2").textContent =vel2.toFixed(3)+ " m/s";
           dragF = calculateDragForce(vel2);
           // document.getElementById("dragForce").textContent =dragF.toFixed(3)+ " N";
-          document.getElementById("dragForce_final").textContent =
-            dragF.toFixed(3) + " N";
+          document.getElementById("dragForce_final").textContent =dragF.toFixed(3)+ " N";
         }
 
         increment();
@@ -307,56 +325,53 @@ function increment() {
 
       const result = document.getElementById("result");
       result.textContent = "Result:-";
-      result.style.fontWeight = "bold";
+      result.style.fontWeight = 'bold';
+      
+      document.getElementById("gravity").textContent = "• Acceleration due to \ngravity :"+ g + " m/"+"s\u00B2 ";
+      document.getElementById("dragForce").textContent ="• Maximum drag force\nin fluid : "+dragF.toFixed(3)+ " N";
+      document.getElementById("terminaVelocity").textContent ="• Terminal velocity of ball 2\nin fluid: "+ terminalVel.toFixed(3)+ " m/s";
 
-      document.getElementById("gravity").textContent =
-        "• Acceleration due to \ngravity :" + g + " m/" + "s\u00B2 ";
-      document.getElementById("dragForce").textContent =
-        "• Maximum drag force\nin fluid : " + dragF.toFixed(3) + " N";
-      document.getElementById("terminaVelocity").textContent =
-        "• Terminal velocity of ball 2\nin fluid: " +
-        terminalVel.toFixed(3) +
-        " m/s";
+      document.getElementById("velocityOfBall1").textContent = "• Final velocity of ball 1\nin vaccum: " +vel1.toFixed(3) + " m/s";
 
-      document.getElementById("velocityOfBall1").textContent =
-        "• Final velocity of ball 1\nin vaccum: " + vel1.toFixed(3) + " m/s";
     }
-  } else {
+  }
+  else{
     reset();
   }
+  
 }
 
-function calculateTerminalVelocity() {
-  if (radioInput.checked && radioInput.value === "GLYCERINE") {
-    rho = 1260; // kg/m^3
+function calculateTerminalVelocity(){
+  if (radioInput.checked && radioInput.value === 'GLYCERINE') {
+    rho = 1260;   // kg/m^3 
   } else {
-    rho = 997.77; // kg/m^3
+    rho = 997.77;   // kg/m^3 
   }
-  terminalVel = Math.sqrt((2 * mass * g) / (rho * area * dragCoefficient));
+  terminalVel = Math.sqrt((2 * mass * g) / (rho * (area)* dragCoefficient));
   // document.getElementById("terminaVelocity").textContent = terminalVel.toFixed(3)+ " m/s";
-  document.getElementById("terminaVelocity1").textContent =
-    terminalVel.toFixed(3) + " m/s";
-
+  document.getElementById("terminaVelocity1").textContent = terminalVel.toFixed(3)+ " m/s";
+          
   return terminalVel;
 }
 
-function calculateTime(vt, g, y) {
-  var ct = (vt / g) * Math.acosh(Math.exp((g * y) / Math.pow(vt, 2)));
+function calculateTime(vt,g,y){
+  var ct  = (vt / g) *( Math.acosh(Math.exp((g * y) / Math.pow(vt, 2))));
   // document.getElementById("calculated_time").textContent = ct.toFixed(3) + " s";
   return ct;
 }
 var dragForce = 0;
-function calculateDragForce(vel2) {
-  if (radioInput.checked && radioInput.value === "GLYCERINE") {
-    rho = 1260; // kg/m^3
+function calculateDragForce(vel2){
+  if (radioInput.checked && radioInput.value === 'GLYCERINE') {
+    rho = 1260;   // kg/m^3 
   } else {
-    rho = 997.77; // kg/m^3
+    rho = 997.77;   // kg/m^3 
   }
-  dragForce = 0.5 * dragCoefficient * rho * area * vel2 * vel2;
+  dragForce = 0.5* dragCoefficient*rho*(area)*vel2*vel2;
   return dragForce;
 }
 
 function velocityOfBall2(vt, g, t) {
+
   // vt: Terminal velocity
   // g: Acceleration due to gravity
   // t: Time = totalSeconds
@@ -378,161 +393,136 @@ var graphVel1 = 0;
 var graphVel2 = 0;
 
 function drawMotion() {
-  if (running == 1 && isCanvasUpdating) {
-    drawCanvasBalls();
-    moveBall();
+  
+  if(running ==1 && isCanvasUpdating){
+  
+      drawCanvasBalls();
+      moveBall();
+      
+      
+      drawFlask();
+      drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+      drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
+      time = index/712
+      // console.log(time)
+      
+      ctx.lineWidth = 2;
+      var startX = xBase; // Set the starting X-coordinate for the graph
+      var startY = yBase1; // Set the starting Y-coordinate for the graph
+  
+      // // velocity of ball1 and time graph 
+      ctx.beginPath();
+      ctx.strokeStyle = "blue";
+      graphVel1 =0;
+      ctx.moveTo(startX, startY+30*graphY-(30/yIncrement)*graphVel1); 
+        for (var i = 1; i <= index; i++) {
+          var graphTime = i/300;
+          var y =2;
+          const time = Math.sqrt(2 * y / g);
+          graphVel1 = g * graphTime;
+          if (graphTime <= time){
 
-    drawFlask();
-    drawAxes(
-      xBase,
-      yBase1,
-      xBase,
-      yBase1,
-      "",
-      "",
-      graphX,
-      graphY,
-      xAxisOffset,
-      xIncrement,
-      yIncrement,
-      "",
-      xNumDecimals,
-      yNumDecimals,
-      xAxisTitle,
-      yAxisTitle1,
-      yAxisTitle_1,
-      graphTitle1
-    );
-    drawAxes(
-      xBase,
-      yBase2,
-      "",
-      "",
-      xBase,
-      yBase2,
-      graphX,
-      graphY,
-      xAxisOffset,
-      xIncrement,
-      "",
-      yIncrement1,
-      xNumDecimals,
-      yNumDecimals1,
-      xAxisTitle,
-      yAxisTitle2,
-      yAxisTitle_2,
-      graphTitle2
-    );
-    time = index / 712;
-    // console.log(time)
+          var x = startX + (30/xIncrement)*graphTime;
+          var y = startY+30*graphY-(30/yIncrement)*graphVel1;
+          ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
 
-    ctx.lineWidth = 2;
-    var startX = xBase; // Set the starting X-coordinate for the graph
-    var startY = yBase1; // Set the starting Y-coordinate for the graph
+      // velocity of ball2 and time graph 
+      ctx.strokeStyle = "red";
+      graphVel2= 0;
+      ctx.beginPath();
 
-    // // velocity of ball1 and time graph
-    ctx.beginPath();
-    ctx.strokeStyle = "blue";
-    graphVel1 = 0;
-    ctx.moveTo(startX, startY + 30 * graphY - (30 / yIncrement) * graphVel1);
-    for (var i = 1; i <= index; i++) {
-      var graphTime = i / 300;
-      var y = 2;
-      const time = Math.sqrt((2 * y) / g);
-      graphVel1 = g * graphTime;
-      if (graphTime <= time) {
-        var x = startX + (30 / xIncrement) * graphTime;
-        var y = startY + 30 * graphY - (30 / yIncrement) * graphVel1;
+      ctx.moveTo(startX, startY+30*graphY-(30/yIncrement)*graphVel2);
+        for (var i = 0; i <= index; i++) {
+          var tv = calculateTerminalVelocity();
+          var c = calculateTime(tv,g,2);
+          var graphTime = i/300;
+        
+        // console.log(graphTime)
+          if (graphTime > c) graphTime = c;
+          var terminaly = calculateTerminalVelocity();
+          graphVel2 = velocityOfBall2(terminaly, g, graphTime );
+          var x = startX + (30/xIncrement)*graphTime;
+          var y = startY+30*graphY-(30/yIncrement)*graphVel2;
+          ctx.lineTo(x, y);
+          
+        }
+        ctx.stroke();
+      // drag Force and time graph 
+
+      startY = yBase2;
+      ctx.beginPath();
+      ctx.moveTo(startX, startY+30*graphY);
+      for (var i = 0; i <= index; i++) {
+          var graphTime = i/300;
+          if (graphTime > c) graphTime = c;
+          var terminaly = calculateTerminalVelocity();
+          graphVel2 = velocityOfBall2(terminaly, g, graphTime );
+          dragF = calculateDragForce(graphVel2);
+        var x = startX + (30/xIncrement)*graphTime;
+        var y = startY+30*graphY-(30/yIncrement1)*dragF;
         ctx.lineTo(x, y);
+
       }
-    }
-    ctx.stroke();
-
-    // velocity of ball2 and time graph
-    ctx.strokeStyle = "red";
-    graphVel2 = 0;
-    ctx.beginPath();
-
-    ctx.moveTo(startX, startY + 30 * graphY - (30 / yIncrement) * graphVel2);
-    for (var i = 0; i <= index; i++) {
-      var tv = calculateTerminalVelocity();
-      var c = calculateTime(tv, g, 2);
-      var graphTime = i / 300;
-
-      // console.log(graphTime)
-      if (graphTime > c) graphTime = c;
-      var terminaly = calculateTerminalVelocity();
-      graphVel2 = velocityOfBall2(terminaly, g, graphTime);
-      var x = startX + (30 / xIncrement) * graphTime;
-      var y = startY + 30 * graphY - (30 / yIncrement) * graphVel2;
-      ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-    // drag Force and time graph
-
-    startY = yBase2;
-    ctx.beginPath();
-    ctx.moveTo(startX, startY + 30 * graphY);
-    for (var i = 0; i <= index; i++) {
-      var graphTime = i / 300;
-      if (graphTime > c) graphTime = c;
-      var terminaly = calculateTerminalVelocity();
-      graphVel2 = velocityOfBall2(terminaly, g, graphTime);
-      dragF = calculateDragForce(graphVel2);
-      var x = startX + (30 / xIncrement) * graphTime;
-      var y = startY + 30 * graphY - (30 / yIncrement1) * dragF;
-      ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    index++;
-    ctx.strokeStyle = "black";
+      ctx.stroke();
+      
+      index++;
+      ctx.strokeStyle = "black";
   }
+  
 }
+
 
 function runMotion() {
   drawMotion();
-
+  
   if (running == 1) {
-    timer = window.setTimeout(runMotion, 1000 / 90);
+    timer = window.setTimeout(runMotion, 1000/90);
   }
+ 
 }
+
 
 var tv = 0;
 var speedBall2;
 function play() {
+  
   let checkbox = document.getElementById("lockCheckbox");
   if (!checkbox.checked) {
     alert("Lock the input parameters");
-  } else {
-    if (checkbox.checked && !isBallFalling) {
-      alert(
-        "Note:- The simulation is running in slow motion (0.1x time) for better understanding"
-      );
+  }
+  else{
+    if (checkbox.checked && !isBallFalling){
+      alert("Note:- The simulation is running in slow motion (0.1x time) for better understanding");
+      
     }
-    if (!isBallFalling && !isCanvasUpdating) {
-      window.clearTimeout(timer);
-      running = 1;
-      runFlag = 1;
-      isBallFalling = true;
-      isCanvasUpdating = true;
-      runMotion();
-
+  if (!isBallFalling && !isCanvasUpdating) {
+    
+    window.clearTimeout(timer);
+    running = 1;
+    runFlag = 1;
+    isBallFalling = true;
+    isCanvasUpdating = true;
+    runMotion();
+    
       startTime = performance.now(); // Record the start time when play is clicked
       increment();
 
-      var y = 2; // distance 2 meter
+      var y = 2;    // distance 2 meter
       tv = calculateTerminalVelocity();
-      var c = calculateTime(tv, g, y);
-      console.log("calculated time = " + c);
-      speedBall2 = (canvas.height - 70 - y2) / (c * 305);
+      var c = calculateTime(tv,g,y);
+      console.log("calculated time = " +c);
+      speedBall2 = (canvas.height-70-y2)/(c*305);  
       // console.log(speedBall2);
-      dy2 = +speedBall2.toFixed(3);
+      dy2 = +speedBall2.toFixed(3)
+
     }
-    console.log(area + "Area");
-    console.log(size + "size");
-  }
-}
+   console.log(area + "Area")
+   console.log(size + "size")
+
+}}
 
 function reset() {
   window.clearTimeout(timer);
@@ -541,23 +531,24 @@ function reset() {
   runFlag = 0;
   y1 = 75; // Reset ball1 position to the top
   y2 = 75;
-  dy1 = 0.75 * 2; // Vertical speed
+  dy1 = 0.75*2; // Vertical speed
   dy2 = 0; // Vertical speed
   d = 105;
-  min = 9.7;
-  max = 9.8;
-  g = (Math.random() * (max - min + 0.01) + min).toFixed(2);
+  min = 9.70;
+  max = 9.80;
+  g =((Math.random() * (max - min +0.01) )+ min).toFixed(2) ;
 
-  //  Clear the array
-  lgTimes1.length = 0;
-  lgTimes2.length = 0;
-  vel1Array.length = 0;
-  sizeArray1.length = 0;
-  sizeArray2.length = 0;
-  vel2Array.length = 0;
-  dragArray.length = 0;
+   //  Clear the array
+   lgTimes1.length = 0;
+   lgTimes2.length = 0;
+   vel1Array.length = 0;
+   sizeArray1.length = 0;
+   sizeArray2.length = 0;
+   vel2Array.length = 0;
+   dragArray.length = 0;
 
-  for (var i = 0; i <= 7; i++) {
+
+  for(var i=0; i<=7;i++){
     document.getElementById(`lg1Time${i}`).textContent = 0;
     document.getElementById(`lg1vel${i}`).textContent = 0;
     document.getElementById(`lg2Time${i}`).textContent = 0;
@@ -565,97 +556,66 @@ function reset() {
     document.getElementById(`dragForce${i}`).textContent = 0;
     document.getElementById(`lg1CrossTime${i}`).textContent = 0;
     document.getElementById(`lg2CrossTime${i}`).textContent = 0;
-  }
-
-  index = -1;
+   }
+ 
+  index= -1;
   drawCanvasBalls();
   drawFlask();
   time = 0;
   displayTime(0, 0, 0);
-  uncheckCheckbox("lockCheckbox");
+  uncheckCheckbox('lockCheckbox');
 
   slider_mass.disabled = false;
-  slider_cof.disabled = false;
-  slider_area.disabled = false;
-  slider_size.disabled = false;
-  Glycerine.disabled = false;
-  Water.disabled = false;
+      slider_cof.disabled =false ;
+      slider_area.disabled = false;
+      slider_size.disabled = false;
+      Glycerine.disabled = false;
+      Water.disabled = false;
   checkbox.disabled = false;
   // drawMotion();
 
-  document.getElementById("velocityOfBall1").textContent = "";
-  document.getElementById("terminaVelocity").textContent = "";
-  document.getElementById("terminaVelocity1").textContent = "0.000" + " m/s";
+
+   document.getElementById("velocityOfBall1").textContent = "";
+  document.getElementById("terminaVelocity").textContent ="";
+  document.getElementById("terminaVelocity1").textContent ="0.000"  + " m/s";
 
   // document.getElementById("velocityOfBall2").textContent = "0.000" + " m/s";
   // document.getElementById("calculated_time").textContent = "0.000" + " s";
   // document.getElementById("density").textContent = 0 ;
+  
+  document.getElementById("dragForce").textContent ="";
+  document.getElementById("dragForce_final").textContent ="0.000"+ " N";
 
-  document.getElementById("dragForce").textContent = "";
-  document.getElementById("dragForce_final").textContent = "0.000" + " N";
+  
+  document.getElementById("gravity").textContent =  "";
+  document.getElementById("gravity1").textContent = 0 + " m/"+"s\u00B2";
+  document.getElementById("gravity2").textContent = 0 + " m/"+"s\u00B2";
+  document.getElementById("gravity3").textContent = 0 + " m/"+"s\u00B2";
 
-  document.getElementById("gravity").textContent = "";
-  document.getElementById("gravity1").textContent = 0 + " m/" + "s\u00B2";
-  document.getElementById("gravity2").textContent = 0 + " m/" + "s\u00B2";
-  document.getElementById("gravity3").textContent = 0 + " m/" + "s\u00B2";
+       
 
-  drawAxes(
-    xBase,
-    yBase1,
-    xBase,
-    yBase1,
-    "",
-    "",
-    graphX,
-    graphY,
-    xAxisOffset,
-    xIncrement,
-    yIncrement,
-    "",
-    xNumDecimals,
-    yNumDecimals,
-    xAxisTitle,
-    yAxisTitle1,
-    yAxisTitle_1,
-    graphTitle1
-  );
-  drawAxes(
-    xBase,
-    yBase2,
-    "",
-    "",
-    xBase,
-    yBase2,
-    graphX,
-    graphY,
-    xAxisOffset,
-    xIncrement,
-    "",
-    yIncrement1,
-    xNumDecimals,
-    yNumDecimals1,
-    xAxisTitle,
-    yAxisTitle2,
-    yAxisTitle_2,
-    graphTitle2
-  );
+  drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+  drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
 
-  container.removeChild(table1Anchor); // Remove Observation Table 1 anchor element
+  
+  container.removeChild(table1Anchor);     // Remove Observation Table 1 anchor element
 
-  container.removeChild(table2Anchor); // Remove Observation Table 2 anchor element
+  container.removeChild(table2Anchor);    // Remove Observation Table 2 anchor element
 
   isCanvasUpdating = false; // Reset the flag to allow canvas update
 }
+
+
 
 function drawFlask() {
   //flasks
   ctx.lineWidth = 1;
 
-  ctx.strokeRect(120, 33, 60, 392); //flask 1
+  ctx.strokeRect(120, 33, 60, 392);           //flask 1
 
   ctx.fillStyle = "rgb(135,206,250,0.4)";
-  ctx.strokeRect(330, 33, 60, 392); //flask 2
-  ctx.fillRect(330, 33, 60, 392); //flask 2
+  ctx.strokeRect(330, 33, 60, 392);           //flask 2
+  ctx.fillRect(330, 33, 60, 392);             //flask 2
 
   ctx.fillStyle = "black";
   ctx.lineWidth = 1;
@@ -790,14 +750,14 @@ function drawFlask() {
 
   ctx.fillStyle = "black";
 
-  ctx.fillRect(215, 140 - 2, 16, 10); // light gate 1 of flask 1
-  ctx.fillRect(215, 175 - 2, 16, 10); // light gate 2 of flask 1
-  ctx.fillRect(215, 210 - 2, 16, 10); // light gate 3 of flask 1
-  ctx.fillRect(215, 245 - 2, 16, 10); // light gate 4 of flask 1
-  ctx.fillRect(215, 280 - 2, 16, 10); // light gate 5 of flask 1
-  ctx.fillRect(215, 315 - 2, 16, 10); // light gate 6 of flask 1
-  ctx.fillRect(215, 350 - 2, 16, 10); // light gate 7 of flask 1
-  ctx.fillRect(215, 385 - 2, 16, 10); // light gate 8 of flask 1
+  ctx.fillRect(215, 140-2, 16, 10); // light gate 1 of flask 1
+  ctx.fillRect(215, 175-2, 16, 10); // light gate 2 of flask 1
+  ctx.fillRect(215, 210-2, 16, 10); // light gate 3 of flask 1
+  ctx.fillRect(215, 245-2, 16, 10); // light gate 4 of flask 1
+  ctx.fillRect(215, 280-2, 16, 10); // light gate 5 of flask 1
+  ctx.fillRect(215, 315-2, 16, 10); // light gate 6 of flask 1
+  ctx.fillRect(215, 350-2, 16, 10); // light gate 7 of flask 1
+  ctx.fillRect(215, 385-2, 16, 10); // light gate 8 of flask 1
 
   ctx.beginPath();
   ctx.moveTo(200, 142);
@@ -826,6 +786,7 @@ function drawFlask() {
   ctx.fill();
   ctx.stroke();
 
+
   ctx.fillStyle = "yellow";
 
   ctx.fillRect(310, 140, 62, 5); // light gate 1  of flask 2
@@ -846,6 +807,8 @@ function drawFlask() {
   ctx.strokeRect(310, 315, 62, 5); // light gate 6 of flask 2
   ctx.strokeRect(310, 350, 62, 5); // light gate 7 of flask 2
   ctx.strokeRect(310, 385, 62, 5); // light gate 8 of flask 2
+
+
 
   ctx.beginPath();
   ctx.moveTo(290, 142);
@@ -876,14 +839,14 @@ function drawFlask() {
 
   ctx.fillStyle = "black";
 
-  ctx.fillRect(278, 140 - 2, 16, 10); // light gate 1 of flask 1
-  ctx.fillRect(278, 175 - 2, 16, 10); // light gate 2 of flask 1
-  ctx.fillRect(278, 210 - 2, 16, 10); // light gate 3 of flask 1
-  ctx.fillRect(278, 245 - 2, 16, 10); // light gate 4 of flask 1
-  ctx.fillRect(278, 280 - 2, 16, 10); // light gate 5 of flask 1
-  ctx.fillRect(278, 315 - 2, 16, 10); // light gate 6 of flask 1
-  ctx.fillRect(278, 350 - 2, 16, 10); // light gate 7 of flask 1
-  ctx.fillRect(278, 385 - 2, 16, 10); // light gate 8 of flask 1
+  ctx.fillRect(278, 140-2, 16, 10); // light gate 1 of flask 1
+  ctx.fillRect(278, 175-2, 16, 10); // light gate 2 of flask 1
+  ctx.fillRect(278, 210-2, 16, 10); // light gate 3 of flask 1
+  ctx.fillRect(278, 245-2, 16, 10); // light gate 4 of flask 1
+  ctx.fillRect(278, 280-2, 16, 10); // light gate 5 of flask 1
+  ctx.fillRect(278, 315-2, 16, 10); // light gate 6 of flask 1
+  ctx.fillRect(278, 350-2, 16, 10); // light gate 7 of flask 1
+  ctx.fillRect(278, 385-2, 16, 10); // light gate 8 of flask 1
 
   drawScale();
 }
@@ -899,7 +862,7 @@ function drawScale() {
   const scaleY = 40; // Y-coordinate of the scale
 
   const numIntervals = 10; // Number of intervals on the scale
-  const intervalHeight = scaleHeight / numIntervals - 4;
+  const intervalHeight = scaleHeight / numIntervals-4;
   const mmLineLength = 12; // Length of the mm lines
 
   ctx.fillStyle = "black"; // Set the fill color for the labels
@@ -949,32 +912,14 @@ var yAxisTitle_2 = "Force (N)";
 var graphTitle1 = "Velocity vs time";
 var graphTitle2 = "Drag force vs time";
 
-function drawAxes(
-  xAxisStart,
-  yAxisStart,
-  xAxisStart1,
-  yAxisStart1,
-  xAxisStart2,
-  yAxisStart2,
-  xNum,
-  yNum,
-  xOffset,
-  xIncrement,
-  yIncrement,
-  yIncrement1,
-  xNumDecimals,
-  yNumDecimals,
-  xAxisTitle,
-  yAxisTitle,
-  y_AxisTitle,
-  graphTitle
-) {
+function drawAxes(xAxisStart,yAxisStart,xAxisStart1,yAxisStart1,xAxisStart2,yAxisStart2,xNum,yNum,xOffset,xIncrement,yIncrement,yIncrement1,xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle,y_AxisTitle,graphTitle) {
   // set background color for the graph
   ctx.fillStyle = "#ffd4d4";
   ctx.fillRect(xAxisStart, yAxisStart, 30 * xNum, 30 * yNum);
 
   var axisLabel = "";
   var axisValue = 0;
+
 
   // vertical grid lines
   ctx.lineWidth = 2;
@@ -1003,6 +948,7 @@ function drawAxes(
     ctx.stroke();
   }
   for (i = 0; i <= yNum; i++) {
+    
     ctx.font = "10pt Calibri";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
@@ -1016,7 +962,7 @@ function drawAxes(
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    axisValue = yIncrement1 * (yNum - i);
+    axisValue = yIncrement1 * (yNum - i) ;
     axisLabel = axisValue.toFixed(2);
     ctx.fillText(axisLabel, xAxisStart2 - 20, yAxisStart2 + 30 * i);
   }
@@ -1060,6 +1006,7 @@ function drawAxes(
   ctx.fillText(yAxisTitle, xAxisStart - 25, yAxisStart - 35);
   ctx.fillText(y_AxisTitle, xAxisStart - 25, yAxisStart - 22);
 
+
   // graph title
   ctx.font = "bold 14pt Calibri";
   ctx.fillStyle = "black";
@@ -1070,43 +1017,5 @@ function drawAxes(
 reset();
 drawCanvasBalls(); // Draw the initial canvas with the balls
 drawFlask();
-drawAxes(
-  xBase,
-  yBase1,
-  xBase,
-  yBase1,
-  "",
-  "",
-  graphX,
-  graphY,
-  xAxisOffset,
-  xIncrement,
-  yIncrement,
-  "",
-  xNumDecimals,
-  yNumDecimals,
-  xAxisTitle,
-  yAxisTitle1,
-  yAxisTitle_1,
-  graphTitle1
-);
-drawAxes(
-  xBase,
-  yBase2,
-  "",
-  "",
-  xBase,
-  yBase2,
-  graphX,
-  graphY,
-  xAxisOffset,
-  xIncrement,
-  "",
-  yIncrement1,
-  xNumDecimals,
-  yNumDecimals1,
-  xAxisTitle,
-  yAxisTitle2,
-  yAxisTitle_2,
-  graphTitle2
-);
+drawAxes(xBase,yBase1,xBase,yBase1,"" ,"",graphX,graphY,xAxisOffset,xIncrement,yIncrement,"",xNumDecimals,yNumDecimals,xAxisTitle,yAxisTitle1,yAxisTitle_1,graphTitle1);
+drawAxes(xBase,yBase2,"" ,"",xBase,yBase2,graphX,graphY,xAxisOffset,xIncrement,"",yIncrement1,xNumDecimals,yNumDecimals1,xAxisTitle,yAxisTitle2,yAxisTitle_2,graphTitle2);
