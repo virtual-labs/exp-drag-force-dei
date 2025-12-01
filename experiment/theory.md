@@ -51,7 +51,25 @@ A stage comes when the amount of upward air resistance force is equal to the dow
   <img src="images/5.png">
 </p> 
 
-In other words, the vertical acceleration is zero and the object falls with constant velocity as described by Newton’s first law of motion. The constant vertical velocity is called the terminal velocity vt. The terminal velocity value is the final, constant velocity value achieved by the falling object.
+In other words, the vertical acceleration is zero and the object falls with constant velocity as described by Newton’s first law of motion. The constant vertical velocity is called the terminal velocity vt. 
+
+The parameters used in this simulation correspond closely to typical real-world values observed in free-fall and drag-force studies. Table 1 below provides a summary of such reference values for better theoretical context.
+
+| Parameter                                       | Symbol / Unit        | Typical Value / Range | Remarks / Context                                                                 |
+|-------------------------------------------------|-----------------------|------------------------|------------------------------------------------------------------------------------|
+| Acceleration due to gravity (at Earth’s surface) | g (m/s²)              | 9.80665               | Slightly varies with latitude and altitude (≈9.78 m/s² at equator, ≈9.83 m/s² at poles). |
+| Air density (at 25°C, sea level)                | ρ_air (kg/m³)         | 1.184                 | Depends on temperature, humidity, and altitude.                                    |
+| Water density                                   | ρ_water (kg/m³)       | 997.77                | Nearly constant at room temperature; used in simulation.                           |
+| Glycerine density                               | ρ_glycerine (kg/m³)   | 1260                  | High-viscosity fluid commonly used for terminal velocity experiments.              |
+| Drag coefficient for smooth sphere              | C_d                   | 0.45–0.50             | Matches the range used in the simulation (0.5–2.0).                                |
+| Drag coefficient for cube / flat plate          | C_d                   | 1.05–1.15             | Strongly influenced by surface orientation and roughness.                           |
+| Drag coefficient for streamlined body (airfoil shape) | C_d               | 0.04–0.10             | Used in aerodynamic and vehicle design studies.                                     |
+| Terminal velocity of a 2 cm steel ball in air   | v_t (m/s)             | 15–20                 | Depends on mass, size, and air resistance.                                         |
+| Terminal velocity of raindrops                  | v_t (m/s)             | 5–9                   | Varies with drop diameter (0.5–4 mm).                                              |
+| Terminal velocity of human skydiver (belly-down) | v_t (m/s)            | ≈ 55                  | Can reach ≈ 120 m/s in head-first dive position.                                   |
+
+
+The terminal velocity value is the final, constant velocity value achieved by the falling object.
 The value of terminal velocity can be determined using the above equations
 
 <p align="center">
