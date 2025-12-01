@@ -88,6 +88,17 @@
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
+    },
+    {
+      "question": "How is the concept of terminal velocity applied in real-life engineering or everyday situations?",
+      "answers": {
+        "a": "Designing parachutes and air-dropped vehicles",
+        "b": "Measuring water flow through pipes",
+        "c": "Calculating the weight of an object",
+        "d": "Determining the height of a building"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     }
   ]
 }
