@@ -44,17 +44,26 @@
      
       "correctAnswer": "c"
     },
+     {
+    "question": "What is the projected area of the following body as it falls vertically downwards in the fluid?",
+    "image": "images/posttest_2.png",
+    "answers": {
+      "a": "πr²",
+      "b": "πR²",
+      "c": "π(R² + r²)",
+      "d": "(π/2)(R² + r²)"
+    },
+    "correctAnswer": "b"
+  },
     {
-      "question": "What is the projected area of the following body as it falls vertically downwards in the fluid ?",
-      "image": "images/posttest_2.png",
-      "answers": {
-        "a": "πr2",
-        "b": "πR2",
-        "c": "π*(R2+r2)",
-        "d": "(π/2)*(R2+r2)"
-      },
-     
-      "correctAnswer": "b"
-    }
+    "question": "If a steel sphere of mass 0.02 kg and projected area 2×10⁻⁴ m² is falling in air with drag coefficient 0.47 and air density 1.2 kg/m³, estimate its terminal velocity.",
+     "answers": {
+      "a": "12.5 m/s",
+      "b": "15.4 m/s",
+      "c": "20.4 m/s",
+      "d": "25.6 m/s"
+    },
+    "correctAnswer": "b"
+  }
   ]
 }
