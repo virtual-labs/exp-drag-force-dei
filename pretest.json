@@ -1,0 +1,104 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What force(s) act(s) on a free-falling object in vacuum?",
+      "answers": {
+        "a": "Gravitational force only",
+        "b": "Gravitational force and drag force",
+        "c": "Drag force only",
+        "d": "Normal force and gravitational force"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which equation represents the velocity of a free-falling object as a function of time?",
+      "answers": {
+        "a": "v=−gt",
+        "b": "v=gt",
+        "c": "v=1/2(gt^2)",
+        "d": "v=1/2(gt)"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What determines the magnitude of the drag force experienced by an object falling through a fluid?",
+      "answers": {
+        "a": "Velocity of the object only",
+        "b": "Projected area of the object only",
+        "c": "Coefficient of drag only",
+        "d": "All of the above"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the drag coefficient used to quantify?",
+      "answers": {
+        "a": "The drag or resistance of an object in a fluid environment",
+        "b": "The acceleration due to gravity",
+        "c": "The density of the fluid",
+        "d": "The projected area of the object"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the condition for an object reaching terminal velocity in a fluid?",
+      "answers": {
+        "a": "When the drag force exceeds the gravitational force",
+        "b": "When the gravitational force exceeds the drag force",
+        "c": "When the net force on the object is zero",
+        "d": "When the object is released from a height"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which equipment is used to detect the passing of the object in the experiment?",
+      "answers": {
+        "a": "Vernier calliper",
+        "b": "Electro-magnet",
+        "c": "Light gates",
+        "d": "Data logger"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the purpose of maintaining the cylindrical chamber in a vacuum?",
+      "answers": {
+        "a": "To increase the air resistance",
+        "b": "To reduce the air resistance",
+        "c": "To measure the coefficient of drag",
+        "d": "To measure the acceleration due to gravity accurately"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How can the terminal velocity of the object be determined experimentally?",
+      "answers": {
+        "a": "By measuring the time taken for the object to pass through each light gate",
+        "b": "By analyzing the velocity-time graph",
+        "c": "By calculating the projected area of the object",
+        "d": "By setting the electromagnet to different power levels"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How is the concept of terminal velocity applied in real-life engineering or everyday situations?",
+      "answers": {
+        "a": "Designing parachutes and air-dropped vehicles",
+        "b": "Measuring water flow through pipes",
+        "c": "Calculating the weight of an object",
+        "d": "Determining the height of a building"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}

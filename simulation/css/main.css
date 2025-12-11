@@ -1,0 +1,363 @@
+html,
+body {
+  overflow: hidden;
+}
+/* .range {
+  width: 120px;
+  height: 10px;
+  appearance: none;
+  background: #edf1f4;
+  outline: 0.5px;
+  outline-style: solid;
+  outline-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff,
+    inset 5px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #0074cf;
+  box-shadow: -158px 0 0 152px #27a0ff;
+  cursor: pointer;
+} */
+#container {
+  width: 1330px;
+  height: 610px;
+  background: url("../images/Background_sim.jpg");
+  background-repeat: no-repeat;
+}
+
+h3 {
+  position: absolute;
+  top: 16px;
+  left: 285px;
+  font-size: 24px;
+}
+
+#stopwatch {
+  position: absolute;
+  left: 1120px;
+  top: 460px;
+  width: 190px;
+  height: 190px;
+}
+.vaccum {
+	position: absolute;
+	left: 370px;
+	top: 580px;
+	color: #fff;
+}
+.fluid{
+	position: absolute;
+	left: 580px;
+	top: 580px;
+	color: #fff;
+}
+.container1 {
+  background-color: #323333;
+  align-items: center;
+  position: absolute;
+  left: 1160px;
+  top: 538px;
+}
+
+.digit {
+  font-size: 26px;
+  color: #58dfab;
+  font-family: fantasy;
+}
+
+.txt {
+  font-size: 26px;
+  color: #58dfab;
+  font-family: fantasy;
+}
+
+#myCanvas {
+  position: absolute;
+  top: 110px;
+  left: 260px;
+  border: 2px solid black;
+  /* background-color: white; */
+}
+.contrl_heading {
+  position: absolute;
+  top: 118px;
+  left: 1100px;
+  font-size: 20px;
+}
+.play {
+  position: absolute;
+  top: 150px;
+  left: 1100px;
+  font-size: 18px;
+}
+#playButton {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+  left: 1160px;
+  top: 147px;
+}
+
+/* .pause{
+	position:absolute;
+	top: 235px;
+	left: 1100px;
+	font-size: 20px;
+}
+#pauseButton{
+	position:absolute;
+	border: none;
+	cursor: pointer;
+	appearance: none;
+	background-color: inherit;
+	left: 1240px;
+	top: 230px;
+} */
+.reset {
+  position: absolute;
+  top: 185px;
+  left: 1100px;
+  font-size: 18px;
+}
+#resetButton {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+  left: 1160px;
+  top: 182px;
+}
+.result_heading {
+  position: absolute;
+  top: 225px;
+  left: 1100px;
+  font-size: 20px;
+}
+.mass_object {
+  position: absolute;
+  left: 30px;
+  top: 225px;
+}
+#slider_mass {
+  position: absolute;
+  left: 40px;
+  top: 245px;
+}
+#initialmassValue {
+  position: absolute;
+  left: 90px;
+  top: 260px;
+}
+.cof {
+  position: absolute;
+  left: 30px;
+  top: 290px;
+}
+#slider_cof {
+  position: absolute;
+  left: 30px;
+  top: 310px;
+}
+#initialDragValue {
+  position: absolute;
+  left: 95px;
+  top: 325px;
+}
+
+.area {
+  position: absolute;
+  left: 30px;
+  top: 350px;
+}
+#slider_area {
+  position: absolute;
+  left: 30px;
+  top: 390px;
+}
+#initialAreaValue {
+  position: absolute;
+  left: 95px;
+  top: 405px;
+}
+.size {
+  position: absolute;
+  left: 30px;
+  top: 425px;
+}
+#slider_size {
+  position: absolute;
+  left: 40px;
+  top: 445px;
+}
+#initialSizeValue {
+  position: absolute;
+  left: 95px;
+  top: 460px;
+}
+
+.lock {
+  position: absolute;
+  left: 85px;
+  top: 488px;
+  font-family: Arial;
+  font-style: bold;
+}
+#lockCheckbox {
+  position: absolute;
+  left: 135px;
+  top: 484px;
+  height: 20px;
+  width: 20px;
+}
+
+/* .density {
+  position: absolute;
+  left: 30px;
+  top: 530px;
+} */
+#lockPopUp {
+  position: absolute;
+  left: 50px;
+  top: 530px;
+}
+.tube1{
+  position: absolute;
+  left: 30px;
+  top: 110px;
+}
+.object_selection{
+  position: absolute;
+  left: 30px;
+  top: 135px;
+}
+.radioSelection {
+  position: absolute;
+  left: 30px;
+  top: 170px;
+}
+
+.velocity {
+  position: absolute;
+  left: 1100px;
+  top: 350px;
+}
+
+div#copyright {
+  position: absolute;
+  left: 280px;
+  top: 600px;
+  height: 10px;
+  width: 2300px;
+  text-align: center;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+.button-table1 {
+  font-size: 0.85em;
+  padding: 8px;
+  position: absolute;
+  left: 1100px;
+  top: 260px;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button-table1:hover {
+  background: #78b5e3;
+}
+.button-table2 {
+  font-size: 0.85em;
+  padding: 8px;
+  position: absolute;
+  left: 1100px;
+  top: 305px;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button-table2:hover {
+  background: #78b5e3;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 70%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #78b5e3;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #000;
+  text-align: center;
+  font-size: medium;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
